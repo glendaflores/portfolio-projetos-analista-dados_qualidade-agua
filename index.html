@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Monitoramento de Qualidade da Água | Glenda Flores</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Lora & DM Sans & DM Mono & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Lora:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet" class="">
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#FFFEFB',
+            paper: '#FFFFFF',
+            primaryText: '#25262A',
+            sage: '#49685E',
+            'sage-soft': '#E5EEE8',
+            violet: {
+              DEFAULT: '#7052A0',
+              deep: '#573D80',
+              soft: '#DCD2E8',
+              surface: '#F4EFFB',
+            },
+            line: '#E4E0E8',
+          },
+          fontFamily: {
+            serif: ['Lora', 'serif'],
+            sans: ['"DM Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', '"DM Mono"', 'monospace'],
+          },
+          boxShadow: {
+            subtle: '0 4px 20px -2px rgba(112, 82, 160, 0.05)',
+            card: '0 10px 30px -4px rgba(73, 104, 94, 0.07)',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      -webkit-font-smoothing: antialiased;
+    }
+    .accordion-content {
+      transition: max-height 0.3s ease-out, opacity 0.25s ease-in-out;
+    }
+    .thumbnail-btn.active {
+      outline: 2.5px solid #7052A0;
+      outline-offset: 2px;
+      opacity: 1 !important;
+    }
+  </style>
+</head>
+<body class="bg-[#FFFEFB] text-[#25262A] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-violet-soft selection:text-violet-deep" style="background-color: rgb(250, 248, 245);" id="topo">
+<!-- BEGIN: NavigationHeader -->
+<header class="sticky top-0 z-50 bg-[#FFFEFB]/95 backdrop-blur-md border-b border-[#E4E0E8] transition-all">
+<div class="max-w-[1400px] mx-auto px-6 lg:px-10 h-20 flex items-center justify-between"><!-- Left: Link button "Voltar ao Portfólio" -->
+<div class="flex items-center">
+  <a href="https://glendaflores.github.io/portfolio-projetos-analista-dados/" class="px-4 py-2 rounded-full border border-violet/30 bg-[#FFFEFB] text-violet hover:bg-violet hover:text-white transition-all text-xs font-mono uppercase tracking-wider font-medium inline-flex items-center gap-2 group active:scale-95 shadow-sm">
+    <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+    </svg>
+    Voltar ao Portfólio
+  </a>
+</div>
+<!-- Center: Brand identity text -->
+<div class="hidden md:flex items-center justify-center text-center">
+  <span class="font-serif font-semibold tracking-tight text-xl text-violet">
+    Glenda Flores
+  </span>
+  <span class="font-normal text-[#49685E] mx-1.5 font-sans">|</span>
+  <span class="font-normal text-[#49685E] text-base font-sans">Portfólio de Análise de Dados</span>
+</div>
+<!-- Right: LinkedIn & E-mail buttons -->
+<nav class="flex items-center space-x-3 text-xs font-mono uppercase tracking-wider">
+  <a href="https://www.linkedin.com/in/glenda-flores-8830b61b5" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full border border-violet/30 bg-[#FFFEFB] text-violet hover:bg-violet hover:text-white transition-all font-medium inline-flex items-center gap-1.5 shadow-sm active:scale-95">
+    LinkedIn ↗
+  </a>
+  <a href="mailto:glendarflores@hotmail.com" class="px-4 py-2 rounded-full border border-violet/30 bg-[#FFFEFB] text-violet hover:bg-violet hover:text-white transition-all font-medium inline-flex items-center gap-1.5 shadow-sm active:scale-95">
+    E-mail ↗
+  </a>
+</nav></div>
+</header>
+<!-- END: NavigationHeader -->
+<!-- BEGIN: MainContent -->
+<main class="max-w-[1400px] mx-auto px-6 lg:px-10 flex-grow w-full pt-8 pb-12">
+<!-- PROJECT TITLE AT THE TOP (Full Width) -->
+<div class="mb-8 border-b border-[#E4E0E8] pb-6">
+<h1 class="font-serif text-3xl sm:text-4xl lg:text-[40px] leading-[1.2] font-semibold text-[#25262A] tracking-tight" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-weight: 700; font-size: clamp(1.4rem, 2.2vw, 1.85rem);">
+      Monitoramento de Qualidade da Água em Corpo Hídrico Litorâneo
+    </h1>
+<p class="text-[#49685E] text-base sm:text-lg font-normal mt-2.5 leading-relaxed" style="white-space: nowrap;">
+      Análise de dados do monitoramento de qualidade da água de um corpo hídrico litorâneo, em 10 pontos amostrais
+    </p>
+</div>
+<!-- TWO COLUMNS LAYOUT: LEFT (~75%) / RIGHT (~25%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+<!-- ========================================== -->
+<!-- LEFT COLUMN: ~75% Width (9 of 12 cols)     -->
+<!-- ========================================== -->
+<section class="lg:col-span-9 flex flex-col space-y-7" data-purpose="dashboard-viewer-and-specs">
+<!-- Main Display Card -->
+<div class="relative bg-white p-2.5 sm:p-3 rounded-2xl border border-[#E4E0E8] shadow-card overflow-hidden">
+<div class="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#FFFEFB]">
+<img alt="Tela 1 - Qualidade da Água" class="w-full h-full object-contain object-center transition-all duration-300 ease-out cursor-pointer" id="mainDisplay" src="images/DASHBOARD_QA-1.jpg" title="Clique para expandir em tela cheia">
+<!-- Navigation Arrow: Previous -->
+<button aria-label="Imagem anterior" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/95 backdrop-blur text-[#25262A] hover:text-violet hover:bg-white shadow-md border border-[#E4E0E8] flex items-center justify-center transition-all transform active:scale-95" id="prevSlideBtn" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Navigation Arrow: Next -->
+<button aria-label="Próxima imagem" class="absolute right-3.5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/95 backdrop-blur text-[#25262A] hover:text-violet hover:bg-white shadow-md border border-[#E4E0E8] flex items-center justify-center transition-all transform active:scale-95" id="nextSlideBtn" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Slide Counter Badge -->
+<div class="absolute bottom-3 bg-[#25262A]/80 backdrop-blur text-[11px] font-mono tracking-wider text-white px-3 py-1 rounded-full pointer-events-none shadow-sm left-3.5">
+<span id="slideCounter" class="">1 / 4 Telas</span>
+</div>
+<button id="openLightboxBtn" type="button" aria-label="Expandir tela cheia" title="Expandir tela cheia" class="absolute right-3.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur text-[#25262A] hover:text-violet hover:bg-white shadow-md border border-[#E4E0E8] flex items-center gap-1.5 text-xs font-mono font-medium transition-all transform active:scale-95 cursor-pointer z-10 bottom-3"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg><span class="hidden sm:inline">Tela cheia</span></button></div>
+</div>
+<!-- 4-Thumbnail Row -->
+<div aria-label="Telas do Projeto" class="grid grid-cols-4 gap-3 sm:gap-4" data-purpose="thumbnail-gallery" role="tablist">
+<button class="thumbnail-btn active relative aspect-[16/10] rounded-xl overflow-hidden bg-white border border-[#E4E0E8] transition-all duration-200 hover:opacity-90 shadow-sm" data-full="images/DASHBOARD_QA-1.jpg" data-index="0" type="button">
+<img alt="Tela 1" class="w-full h-full object-cover" src="images/DASHBOARD_QA-1.jpg">
+</button>
+<button class="thumbnail-btn opacity-60 relative aspect-[16/10] rounded-xl overflow-hidden bg-white border border-[#E4E0E8] transition-all duration-200 hover:opacity-100 shadow-sm" data-full="images/DASHBOARD_QA-2.jpg" data-index="1" type="button">
+<img alt="Tela 2" class="w-full h-full object-cover" src="images/DASHBOARD_QA-2.jpg">
+</button>
+<button class="thumbnail-btn opacity-60 relative aspect-[16/10] rounded-xl overflow-hidden bg-white border border-[#E4E0E8] transition-all duration-200 hover:opacity-100 shadow-sm" data-full="images/DASHBOARD_QA-3.jpg" data-index="2" type="button">
+<img alt="Tela 3" class="w-full h-full object-cover" src="images/DASHBOARD_QA-3.jpg">
+</button>
+<button class="thumbnail-btn opacity-60 relative aspect-[16/10] rounded-xl overflow-hidden bg-white border border-[#E4E0E8] transition-all duration-200 hover:opacity-100 shadow-sm" data-full="images/DASHBOARD_QA-4.jpg" data-index="3" type="button">
+<img alt="Tela 4" class="w-full h-full object-cover" src="images/DASHBOARD_QA-4.jpg">
+</button>
+</div>
+<!-- Tags de Ferramentas & Tecnologias -->
+<div class="flex flex-wrap gap-2 items-center pt-1" data-purpose="tech-stack-pills"><span class="text-xs font-mono uppercase text-[#49685E] mr-1 font-semibold">Tecnologias:</span>
+<span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-[#E5EEE8] text-[#49685E] border border-[#d2e2d8]">Excel</span>
+<span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-[#E5EEE8] text-[#49685E] border border-[#d2e2d8]">Power BI</span>
+<span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-[#E5EEE8] text-[#49685E] border border-[#d2e2d8]">DAX</span>
+<span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-[#E5EEE8] text-[#49685E] border border-[#d2e2d8]">Power Query / ETL</span></div>
+<!-- Seção "Principais medidas em DAX" -->
+<div class="rounded-2xl border border-[#E4E0E8] bg-white p-6 shadow-subtle" data-purpose="dax-measures-section" style="margin-top: 3.5rem;"><button aria-expanded="false" onclick="const content = document.getElementById('daxContent'); const icon = document.getElementById('daxIcon'); const isExpanded = this.getAttribute('aria-expanded') === 'true'; if(isExpanded){ this.setAttribute('aria-expanded', 'false'); content.classList.add('hidden'); content.classList.remove('block'); icon.classList.remove('rotate-180'); } else { this.setAttribute('aria-expanded', 'true'); content.classList.remove('hidden'); content.classList.add('block'); icon.classList.add('rotate-180'); }" class="w-full flex items-center justify-between text-left focus:outline-none group pb-1 cursor-pointer" type="button">
+  <div class="flex items-center gap-2.5">
+    <svg class="w-5 h-5 text-violet group-hover:text-violet-deep transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+    </svg>
+    <h2 class="font-serif text-xl font-semibold text-[#25262A] group-hover:text-violet transition-colors">Principais medidas em DAX</h2>
+  </div>
+  <svg id="daxIcon" class="w-5 h-5 text-[#49685E] transform transition-transform duration-200 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+  </svg>
+</button>
+<div id="daxContent" class="border-t border-[#E4E0E8] mt-3 pt-4 transition-all duration-300 hidden">
+  <p class="text-sm text-[#49685E] mb-4">As principais medidas em DAX usadas no Power BI são listadas em seguida:</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Medida 1 -->
+    <div class="rounded-xl border border-[#E4E0E8] bg-[#FFFEFB] p-4 flex flex-col justify-between">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-xs font-mono uppercase tracking-wider font-semibold text-violet">Limite Máximo PARA CADA PARÂMETRO</span>
+      </div>
+      <pre class="bg-white border border-[#E4E0E8] p-3 rounded-lg overflow-x-auto text-[13px] font-mono text-[#25262A] leading-relaxed flex-grow"><code>LimiteMáximo = 
+VAR Param = SELECTEDVALUE('DADOS_SUP'[Parâmetro])
+RETURN
+    LOOKUPVALUE(
+        'PARAMETROS'[Limite máximo],
+        'PARAMETROS'[Parâmetro], Param
+    )</code></pre>
+    </div>
+    <!-- Medida 2 -->
+    <div class="rounded-xl border border-[#E4E0E8] bg-[#FFFEFB] p-4 flex flex-col justify-between">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-xs font-mono uppercase tracking-wider font-semibold text-violet">QUANTIDADE DE medições (AMOSTRAS SUPERFICIAIS)</span>
+      </div>
+      <pre class="bg-white border border-[#E4E0E8] p-3 rounded-lg overflow-x-auto text-[13px] font-mono text-[#25262A] leading-relaxed flex-grow"><code>Qtd. medições SUP = countrows(DADOS_SUP)</code></pre>
+    </div>
+    <!-- Medida 3 -->
+    <div class="rounded-xl border border-[#E4E0E8] bg-[#FFFEFB] p-4 flex flex-col justify-between">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-xs font-mono uppercase tracking-wider font-semibold text-violet">QUANTIDADE DE não conformidades REGISTRADAS NAS AMOSTRAS SUPERFICIAIS</span>
+      </div>
+      <pre class="bg-white border border-[#E4E0E8] p-3 rounded-lg overflow-x-auto text-[13px] font-mono text-[#25262A] leading-relaxed flex-grow"><code>Qtd. não conformidades SUP = 
+CALCULATE(
+    [Qtd. medições SUP],
+    DADOS_SUP[Conformidade] = "Não conforme")</code></pre>
+    </div>
+    <!-- Medida 4 -->
+    <div class="rounded-xl border border-[#E4E0E8] bg-[#FFFEFB] p-4 flex flex-col justify-between">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-xs font-mono uppercase tracking-wider font-semibold text-violet">PERCENTUAL DE Não conformidade NAS AMOSTRAS SUPERFICIAIS</span>
+      </div>
+      <pre class="bg-white border border-[#E4E0E8] p-3 rounded-lg overflow-x-auto text-[13px] font-mono text-[#25262A] leading-relaxed flex-grow"><code>% Não conformidade SUP = 
+DIVIDE(
+    [Qtd. não conformidades SUP],
+    [Qtd. medições SUP])</code></pre>
+    </div>
+  </div>
+</div></div>
+</section>
+<!-- ========================================== -->
+<!-- RIGHT COLUMN: ~25% Width (3 of 12 cols)    -->
+<!-- ========================================== -->
+<aside class="lg:col-span-3 flex flex-col space-y-3.5" data-purpose="case-accordions-sidebar">
+<!-- Accordion 1: Visão Geral do Projeto (Open by default) -->
+<div class="accordion-item rounded-2xl border border-[#E4E0E8] bg-white shadow-subtle overflow-hidden transition-colors">
+<button aria-expanded="true" class="accordion-trigger w-full px-5 py-4 flex items-center justify-between text-left focus:outline-none group" type="button">
+<span class="font-serif font-semibold text-base text-[#3D4888] group-hover:text-violet transition-colors" style="color: rgb(61, 72, 136); font-family: Lora, &quot;Playfair Display&quot;, serif;">
+            Visão Geral do Projeto
+          </span>
+<svg class="accordion-icon w-4 h-4 text-[#49685E] transform transition-transform duration-200 flex-shrink-0 ml-2 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="accordion-content px-5 pb-5 pt-1 text-sm text-[#49685E] leading-relaxed border-t border-[#E4E0E8]/60 mt-1 block">
+<p class="mb-3">
+            O projeto é baseado em dados fictícios organizados no mesmo modelo de planilha Excel que estruturei durante minha mais recente experiência profissional. Trata-se de um monitoramento de qualidade da água em um corpo hídrico litorâneo, em 10 pontos amostrais, durante 18 campanhas mensais de um programa ambiental.
+          </p>
+<p class="mb-3">
+            Os valores máximos permitidos (VMP) usados como base de comparação são os determinados na Resolução CONAMA Nº 357/05, importante legislação usada no contexto ambiental de enquadramento de corpos hídricos.
+          </p>
+<p class="">
+            A análise teve como foco verificar as alterações dos principais parâmetros de qualidade da água ao longo do monitoramento, a fim de identificar possíveis impactos ambientais no corpo hídrico em questão. Foi analisada também a possibilidade de variação sazonal, de acordo com a definição de estações meteorológicas.
+          </p>
+</div>
+</div>
+<!-- Accordion 2: O Desafio (Collapsed by default) -->
+<div class="accordion-item rounded-2xl border border-[#E4E0E8] bg-white shadow-subtle overflow-hidden transition-colors">
+<button aria-expanded="false" class="accordion-trigger w-full px-5 py-4 flex items-center justify-between text-left focus:outline-none group" type="button">
+<span class="font-serif font-semibold text-base text-[#3D4888] group-hover:text-violet transition-colors" style="color: rgb(61, 72, 136); font-family: Lora, &quot;Playfair Display&quot;, serif;">
+            O Desafio
+          </span>
+<svg class="accordion-icon w-4 h-4 text-[#49685E] transform transition-transform duration-200 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="accordion-content px-5 pb-5 pt-1 text-sm text-[#49685E] leading-relaxed border-t border-[#E4E0E8]/60 mt-1 hidden">
+<p class="">
+            O principal desafio para esse projeto foi a estruturação dos dados oriundos do laboratório responsável pela análise, para unificar e padronizar as colunas com os dados de todo o período monitorado. A mescla e padronização dos dados foi realizada no Excel.
+          </p>
+</div>
+</div>
+<!-- Accordion 3: A Solução (Collapsed by default) -->
+<div class="accordion-item rounded-2xl border border-[#E4E0E8] bg-white shadow-subtle overflow-hidden transition-colors">
+<button aria-expanded="false" class="accordion-trigger w-full px-5 py-4 flex items-center justify-between text-left focus:outline-none group" type="button">
+<span class="font-serif font-semibold text-base text-[#3D4888] group-hover:text-violet transition-colors" style="color: rgb(61, 72, 136); font-family: Lora, &quot;Playfair Display&quot;, serif;">
+            A Solução
+          </span>
+<svg class="accordion-icon w-4 h-4 text-[#49685E] transform transition-transform duration-200 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="accordion-content px-5 pb-5 pt-1 text-sm text-[#49685E] leading-relaxed hidden border-t border-[#E4E0E8]/60 mt-1">
+<p class="">
+            Foram elaborados um formato de planilha e um dashboard únicos prontos para receber novos dados a cada mês de monitoramento, facilitando a atualização e o acompanhamento das variações da qualidade da água no corpo hídrico em questão.
+          </p>
+</div>
+</div>
+<!-- Accordion 4: Impacto e Resultados (Collapsed by default) -->
+<div class="accordion-item rounded-2xl border border-[#E4E0E8] bg-white shadow-subtle overflow-hidden transition-colors">
+<button aria-expanded="false" class="accordion-trigger w-full px-5 py-4 flex items-center justify-between text-left focus:outline-none group" type="button">
+<span class="font-serif font-semibold text-base text-[#3D4888] group-hover:text-violet transition-colors" style="color: rgb(61, 72, 136); font-family: Lora, &quot;Playfair Display&quot;, serif;">
+            Impacto e Resultados
+          </span>
+<svg class="accordion-icon w-4 h-4 text-[#49685E] transform transition-transform duration-200 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="accordion-content px-5 pb-5 pt-1 text-sm text-[#49685E] leading-relaxed hidden border-t border-[#E4E0E8]/60 mt-1">
+<p class="">
+            A organização do dashboard e a estruturação da planilha de dados acelerou o processo de atualização de dados a cada mês de realização de campanhas amostrais. Os gráficos e as segmentações utilizadas no dashboard contribuíram para melhorar a visualização e a interpretação do usuário, leitor do relatório, e o entendimento das alterações ao longo do tempo no corpo hídrico.
+          </p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: Footer -->
+<footer class="border-t border-[#E4E0E8] py-8 bg-white text-center">
+<div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#49685E]"><a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-violet/30 bg-[#FFFEFB] text-violet hover:bg-violet hover:text-white transition-all uppercase tracking-wider font-medium shadow-sm active:scale-95" href="#topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        Voltar ao topo ↑
+      </a>
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-violet text-white hover:bg-violet-deep transition-all uppercase tracking-wider font-medium shadow-sm active:scale-95 text-xs font-mono" href="https://glendaflores.github.io/portfolio-projetos-analista-dados-detalhe-2/">Próximo projeto →</a></div>
+</div>
+</footer>
+<!-- END: Footer -->
+<!-- BEGIN: JavaScript Logic -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Carousel / Thumbnail Switcher
+    const thumbnails = document.querySelectorAll('.thumbnail-btn');
+    const mainImage = document.getElementById('mainDisplay');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevSlideBtn');
+    const nextBtn = document.getElementById('nextSlideBtn');
+
+    let currentIndex = 0;
+    const totalSlides = thumbnails.length;
+
+    function updateActiveSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+
+      thumbnails.forEach((thumb, idx) => {
+        if (idx === currentIndex) {
+          thumb.classList.add('active');
+          thumb.classList.remove('opacity-60');
+          const thumbnailImage = thumb.querySelector('img');
+          const targetUrl = thumbnailImage ? thumbnailImage.getAttribute('src') : thumb.getAttribute('data-full');
+          if (targetUrl) {
+            mainImage.src = targetUrl;
+          }
+        } else {
+          thumb.classList.remove('active');
+          thumb.classList.add('opacity-60');
+        }
+      });
+
+      if (slideCounter) {
+        slideCounter.textContent = `${currentIndex + 1} / ${totalSlides} Telas`;
+      }
+    }
+
+    thumbnails.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        const idx = parseInt(thumb.getAttribute('data-index'), 10);
+        updateActiveSlide(idx);
+      });
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        updateActiveSlide(currentIndex - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        updateActiveSlide(currentIndex + 1);
+      });
+    }
+
+    // 2. Accordions Functionality (Independent toggle)
+    const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+
+    accordionTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.accordion-item');
+        const content = item.querySelector('.accordion-content');
+        const icon = trigger.querySelector('.accordion-icon');
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+        if (isExpanded) {
+          trigger.setAttribute('aria-expanded', 'false');
+          content.classList.add('hidden');
+          content.classList.remove('block');
+          icon.classList.remove('rotate-180');
+        } else {
+          trigger.setAttribute('aria-expanded', 'true');
+          content.classList.remove('hidden');
+          content.classList.add('block');
+          icon.classList.add('rotate-180');
+        }
+      });
+    });
+  });
+</script>
+<!-- END: JavaScript Logic -->
+
+
+<div id="lightboxModal" class="fixed inset-0 z-50 bg-[#25262A]/95 backdrop-blur-md hidden flex-col px-3 pt-3 pb-3 sm:px-5 md:px-6 transition-all duration-300" role="dialog" aria-modal="true" aria-label="Visualização em tela cheia da imagem do dashboard">
+  <div class="absolute top-3 right-3 md:top-5 md:right-5 flex items-center gap-2 z-50">
+    <button id="closeLightboxBtn" type="button" aria-label="Fechar visualização" title="Fechar (ESC)" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white hover:text-[#25262A] text-white backdrop-blur border border-white/20 flex items-center justify-center transition-all cursor-pointer transform active:scale-95"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+  </div>
+  <div class="flex items-center justify-center gap-3 md:gap-5 w-full flex-1 min-h-0 pr-1 md:pr-2">
+    <div id="modalImageArea" class="relative flex-1 min-w-0 h-full min-h-0 flex items-center justify-center overflow-auto select-none">
+      <button id="modalPrevBtn" type="button" aria-label="Imagem anterior" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#25262A]/65 hover:bg-white hover:text-[#25262A] text-white backdrop-blur border border-white/20 flex items-center justify-center transition-all cursor-pointer transform active:scale-95 z-20"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg></button>
+      <img id="modalImage" src="" alt="Visualização ampliada do dashboard" class="max-w-full max-h-[calc(100vh-24px)] w-auto h-auto object-contain rounded-xl shadow-2xl border border-white/10" style="transform: scale(1); transform-origin: center center;">
+      <button id="modalNextBtn" type="button" aria-label="Próxima imagem" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#25262A]/65 hover:bg-white hover:text-[#25262A] text-white backdrop-blur border border-white/20 flex items-center justify-center transition-all cursor-pointer transform active:scale-95 z-20"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg></button>
+    </div>
+    <div id="zoomControls" class="flex-shrink-0 w-[72px] sm:w-[82px] md:w-[92px] flex flex-col items-center gap-2.5 self-center py-3 px-1.5">
+      <div id="modalSlideCounter" class="text-white/65 text-[9px] md:text-[10px] font-mono tracking-wide text-center leading-relaxed select-none">1 / 4 Telas</div>
+      <span class="text-white/45 text-[9px] md:text-[10px] font-mono uppercase tracking-wider text-center">Zoom</span>
+      <button id="zoomInBtn" type="button" aria-label="Aumentar zoom" title="Aumentar zoom" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/15 text-white/85 border border-white/15 flex items-center justify-center text-lg transition-colors">+</button>
+      <span id="zoomLevel" class="text-white/75 text-[11px] md:text-xs font-mono text-center">100%</span>
+      <button id="zoomOutBtn" type="button" aria-label="Diminuir zoom" title="Diminuir zoom" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/15 text-white/85 border border-white/15 flex items-center justify-center text-lg transition-colors">−</button>
+      <button id="zoomResetBtn" type="button" title="Redefinir zoom" class="w-full px-1 h-7 rounded-full bg-white/5 hover:bg-white/15 text-white/75 border border-white/15 text-[9px] md:text-[10px] font-mono transition-colors">Ajustar</button>
+    </div>
+  </div>
+</div><script>(function(){
+const modal=document.getElementById('lightboxModal'), modalImg=document.getElementById('modalImage'), modalCounter=document.getElementById('modalSlideCounter');
+const openBtn=document.getElementById('openLightboxBtn'), closeBtn=document.getElementById('closeLightboxBtn'), modalPrev=document.getElementById('modalPrevBtn'), modalNext=document.getElementById('modalNextBtn');
+const mainImg=document.getElementById('mainDisplay'), zoomIn=document.getElementById('zoomInBtn'), zoomOut=document.getElementById('zoomOutBtn'), zoomReset=document.getElementById('zoomResetBtn'), zoomLevel=document.getElementById('zoomLevel');
+let scale=1; const minScale=1, maxScale=4, step=0.25;
+let originX=50, originY=50;
+function applyZoom(){ if(!modalImg)return; modalImg.style.transformOrigin=originX+'% '+originY+'%'; modalImg.style.transform='scale('+scale+')'; modalImg.style.cursor='zoom-in'; if(zoomLevel)zoomLevel.textContent=Math.round(scale*100)+'%'; }
+function setZoom(value, clientX, clientY){
+  const next=Math.max(minScale,Math.min(maxScale,value));
+  if(modalImg && typeof clientX==='number' && typeof clientY==='number'){
+    const rect=modalImg.getBoundingClientRect();
+    originX=Math.max(0,Math.min(100,((clientX-rect.left)/Math.max(rect.width,1))*100));
+    originY=Math.max(0,Math.min(100,((clientY-rect.top)/Math.max(rect.height,1))*100));
+  } else if(next===1){originX=50;originY=50;}
+  scale=next;applyZoom();
+}
+function syncModal(){if(!modalImg||!mainImg)return;modalImg.src=mainImg.src;const counter=document.getElementById('slideCounter');if(counter&&modalCounter)modalCounter.textContent=counter.textContent;originX=50;originY=50;setZoom(1);}
+function openLightbox(){syncModal();modal.classList.remove('hidden');modal.classList.add('flex');document.body.style.overflow='hidden';}
+function closeLightbox(){modal.classList.add('hidden');modal.classList.remove('flex');document.body.style.overflow='';setZoom(1);}
+if(openBtn)openBtn.addEventListener('click',openLightbox);if(mainImg)mainImg.addEventListener('click',openLightbox);if(closeBtn)closeBtn.addEventListener('click',closeLightbox);
+if(zoomIn)zoomIn.addEventListener('click',()=>setZoom(scale+step));if(zoomOut)zoomOut.addEventListener('click',()=>setZoom(scale-step));if(zoomReset)zoomReset.addEventListener('click',()=>setZoom(1));
+if(modal)modal.addEventListener('wheel',e=>{if(modal.classList.contains('hidden')||!modalImg)return;const rect=modalImg.getBoundingClientRect();if(e.clientX>=rect.left&&e.clientX<=rect.right&&e.clientY>=rect.top&&e.clientY<=rect.bottom){e.preventDefault();setZoom(scale+(e.deltaY<0?step:-step),e.clientX,e.clientY);}},{passive:false});
+if(modalPrev)modalPrev.addEventListener('click',()=>{const btn=document.getElementById('prevSlideBtn');if(btn)btn.click();setTimeout(syncModal,50);});
+if(modalNext)modalNext.addEventListener('click',()=>{const btn=document.getElementById('nextSlideBtn');if(btn)btn.click();setTimeout(syncModal,50);});
+if(modal)modal.addEventListener('click',e=>{if(e.target===modal)closeLightbox();});
+document.addEventListener('keydown',e=>{if(modal&&!modal.classList.contains('hidden')){if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft'&&modalPrev)modalPrev.click();if(e.key==='ArrowRight'&&modalNext)modalNext.click();if(e.key==='+'||e.key==='=')setZoom(scale+step);if(e.key==='-')setZoom(scale-step);if(e.key==='0')setZoom(1);}});
+})();</script></body></html>
